@@ -62,6 +62,8 @@ employee-directory/
 └── screenshots/        # Application screenshots
     ├── dashboard.png
     ├── add-employee-modal.png
+    ├── edit-employee-modal.png
+    ├── delete-confirmation.png
     ├── filter-sidebar.png
     └── mobile-view.png
 ```
@@ -247,4 +249,7 @@ This project is created as a demonstration of front-end development skills and i
 
 ## Contact
 
-For questions or feedback about this project, please refer to the assignment requirements or contact the development team.
+For questions or feedback about this project, feel free to reach out:
+
+**Kubendiran P**  
+📧 Email: kubendiranpalani289@gmail.com
