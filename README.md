@@ -2,6 +2,32 @@
 
 A responsive and interactive Employee Directory Web Interface built with HTML, CSS, and vanilla JavaScript. This application provides a comprehensive solution for managing employee data with full CRUD operations, advanced filtering, search, and pagination capabilities.
 
+## Screenshots
+
+### Dashboard View
+![Dashboard](screenshots/dashboard.png)
+*Main dashboard showing employee grid with search and filter options*
+
+### Add Employee Modal
+![Add Employee Modal](screenshots/add-employee-modal.png)
+*Modal form for adding new employees with validation*
+
+### Edit Employee Modal
+![Edit Employee Modal](screenshots/edit-employee-modal.png)
+*Modal form for editing existing employee information*
+
+### Filter Sidebar
+![Filter Sidebar](screenshots/filter-sidebar.png)
+*Advanced filtering options by name, department, and role*
+
+### Mobile Responsive View
+![Mobile View](screenshots/mobile-view.png)
+*Responsive design optimized for mobile devices*
+
+### Delete Confirmation
+![Delete Confirmation](screenshots/delete-confirmation.png)
+*Confirmation dialog for employee deletion*
+
 ## Features
 
 ### Core Functionality
@@ -32,23 +58,60 @@ employee-directory/
 ├── index.html          # Main HTML file
 ├── styles.css          # CSS styles and responsive design
 ├── script.js           # JavaScript functionality
-└── README.md           # Project documentation
+├── README.md           # Project documentation
+└── screenshots/        # Application screenshots
+    ├── dashboard.png
+    ├── add-employee-modal.png
+    ├── filter-sidebar.png
+    └── mobile-view.png
 ```
 
 ## Setup and Installation
 
-1. **Clone or Download**: Get the project files
-2. **Open in Browser**: Simply open `index.html` in your web browser
-3. **Local Server** (optional): For better development experience, run a local server:
-   ```bash
-   # Using Python
-   python -m http.server 8000
-   
-   # Using Node.js
-   npx http-server
-   
-   # Using Live Server extension in VS Code
-   ```
+### Method 1: Using Live Server Extension (Recommended)
+
+1. **Install Live Server Extension**
+   - Open VS Code
+   - Go to Extensions (Ctrl+Shift+X)
+   - Search for "Live Server" by Ritwick Dey
+   - Click "Install"
+
+2. **Open the Project**
+   - Open VS Code
+   - Go to File → Open Folder
+   - Select the project folder
+
+3. **Start the Server**
+   - Right-click on `index.html`
+   - Select "Open with Live Server"
+   - Browser will automatically open with the application
+
+### Method 2: Using Python HTTP Server
+
+```bash
+# Navigate to project directory
+cd employee-directory
+
+# Start Python server
+python -m http.server 8000
+
+# Open browser and go to http://localhost:8000
+```
+
+### Method 3: Using Node.js HTTP Server
+
+```bash
+# Install http-server globally (one time)
+npm install -g http-server
+
+# Navigate to project directory
+cd employee-directory
+
+# Start server
+http-server
+
+# Open browser and go to the provided URL
+```
 
 ## Usage
 
@@ -127,6 +190,14 @@ employee-directory/
 - Proper ARIA labels where needed
 - High contrast color scheme
 
+## Challenges Faced
+
+1. **Responsive Design**: Ensuring the interface works well across all device sizes
+2. **State Management**: Managing complex filter, sort, and pagination state
+3. **Form Validation**: Implementing comprehensive client-side validation
+4. **Modal Management**: Handling multiple modals and their interactions
+5. **Performance**: Optimizing DOM updates for large datasets
+
 ## Future Enhancements
 
 If given more time, the following improvements could be implemented:
@@ -142,13 +213,33 @@ If given more time, the following improvements could be implemented:
 9. **Keyboard Shortcuts**: Power user keyboard navigation
 10. **Data Validation**: Server-side validation simulation
 
-## Challenges Faced
+## Freemarker Integration Notes
 
-1. **Responsive Design**: Ensuring the interface works well across all device sizes
-2. **State Management**: Managing complex filter, sort, and pagination state
-3. **Form Validation**: Implementing comprehensive client-side validation
-4. **Modal Management**: Handling multiple modals and their interactions
-5. **Performance**: Optimizing DOM updates for large datasets
+While this implementation uses vanilla JavaScript for demonstration, the application can be easily integrated with Freemarker templates:
+
+```html
+<!-- Example Freemarker integration -->
+<#assign employees = [
+  {"id": 1, "firstName": "Alice", "lastName": "Smith", "email": "alice@example.com", "department": "HR", "role": "Manager"},
+  {"id": 2, "firstName": "Bob", "lastName": "Johnson", "email": "bob@example.com", "department": "IT", "role": "Developer"}
+]>
+
+<script>
+  // Load data from Freemarker
+  const employees = [
+    <#list employees as employee>
+      {
+        id: ${employee.id},
+        firstName: "${employee.firstName}",
+        lastName: "${employee.lastName}",
+        email: "${employee.email}",
+        department: "${employee.department}",
+        role: "${employee.role}"
+      }<#if employee_has_next>,</#if>
+    </#list>
+  ];
+</script>
+```
 
 ## License
 
